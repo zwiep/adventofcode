@@ -1,4 +1,4 @@
-import millisecondone.Captcha;
+import millisecond.one.Captcha;
 
 public class AdventOfCode {
 

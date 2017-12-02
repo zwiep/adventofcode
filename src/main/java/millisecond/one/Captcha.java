@@ -1,4 +1,4 @@
-package millisecondone;
+package millisecond.one;
 
 import com.sun.xml.internal.fastinfoset.util.CharArray;
 

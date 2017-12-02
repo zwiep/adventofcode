@@ -1,5 +1,6 @@
-package millisecondone;
+package millisecond.one;
 
+import millisecond.one.Captcha;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 
