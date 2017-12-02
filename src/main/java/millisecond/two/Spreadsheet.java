@@ -11,12 +11,14 @@ public class Spreadsheet {
     public int checksum(String fileLocation) throws IOException {
         ArrayList<ArrayList> inputArray = readFile(fileLocation);
         int checksum = 0;
+
         for (ArrayList<Integer> row : inputArray) {
             Collections.sort(row);
             Collections.reverse(row);
             int difference = row.get(0) - row.get(row.size()-1);
             checksum = checksum + difference;
         }
+
         return checksum;
     }
 
@@ -33,16 +35,14 @@ public class Spreadsheet {
                     }
                 }
             }
+
         return checksum;
     }
 
     public ArrayList readFile(String fileLocation) throws IOException {
-
         BufferedReader read = new BufferedReader(new FileReader(fileLocation));
-
         ArrayList<ArrayList> array = new ArrayList();
-
-        String line = null;
+        String line;
 
         while ((line = read.readLine()) != null){
             ArrayList<Integer> lineArray = new ArrayList();
@@ -51,7 +51,6 @@ public class Spreadsheet {
                 lineArray.add(Integer.valueOf(value));
             }
             array.add(lineArray);
-
         }
         read.close();
 
