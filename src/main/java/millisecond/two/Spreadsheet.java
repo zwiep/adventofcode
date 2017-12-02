@@ -20,8 +20,20 @@ public class Spreadsheet {
         return checksum;
     }
 
-    public int checksumTwo(String fileLocation) {
-        return 99;
+    public int checksumTwo(String fileLocation) throws IOException {
+        ArrayList<ArrayList> inputArray = readFile(fileLocation);
+        int checksum = 0;
+
+        for (ArrayList<Integer> row : inputArray) {
+            for (Integer number : row) {
+                for (Integer otherNumber : row) {
+                    if ((number % otherNumber == 0) && (number != otherNumber)){
+                            checksum = checksum + (number / otherNumber);
+                        }
+                    }
+                }
+            }
+        return checksum;
     }
 
     public ArrayList readFile(String fileLocation) throws IOException {

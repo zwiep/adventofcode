@@ -27,5 +27,11 @@ public class AdventOfCode {
         int checksum = spreadsheet.checksum(inputFile);
         System.out.println("Millisecond One: Checksum");
         System.out.println(checksum);
+
+        System.out.println("=================================");
+
+        int checksumTwo = spreadsheet.checksumTwo(inputFile);
+        System.out.println("Millisecond Two: Checksum");
+        System.out.println(checksumTwo);
     }
 }
