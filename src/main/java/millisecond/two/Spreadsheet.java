@@ -20,6 +20,10 @@ public class Spreadsheet {
         return checksum;
     }
 
+    public int checksumTwo(String fileLocation) {
+        return 99;
+    }
+
     public ArrayList readFile(String fileLocation) throws IOException {
 
         BufferedReader read = new BufferedReader(new FileReader(fileLocation));
