@@ -1,3 +1,4 @@
+import millisecond.four.PasswordValidator;
 import millisecond.one.Captcha;
 import millisecond.two.Spreadsheet;
 
@@ -33,5 +34,15 @@ public class AdventOfCode {
         int checksumTwo = spreadsheet.checksumTwo(inputFile);
         System.out.println("Millisecond Two: Checksum");
         System.out.println(checksumTwo);
+
+        System.out.println("=================================");
+
+        PasswordValidator passwordValidator = new PasswordValidator();
+        String passPhraseInputFile = "src/main/resources/millisecond/four/passphrase_input_millisecond_four";
+        int amountOfValidPassphrases = passwordValidator.checkAmountOfValidPassphrases(passPhraseInputFile);
+        System.out.println("Millisecond Four: amount of valid phrases");
+        System.out.println(amountOfValidPassphrases);
+
+        System.out.println("=================================");
     }
 }

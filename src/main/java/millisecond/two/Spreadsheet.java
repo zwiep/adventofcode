@@ -1,15 +1,15 @@
 package millisecond.two;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Spreadsheet {
 
+    private utils.FileReader filereader = new utils.FileReader();
+
     public int checksum(String fileLocation) throws IOException {
-        ArrayList<ArrayList> inputArray = readFile(fileLocation);
+        ArrayList<ArrayList> inputArray = filereader.readIntegerFile(fileLocation);
         int checksum = 0;
 
         for (ArrayList<Integer> row : inputArray) {
@@ -23,7 +23,7 @@ public class Spreadsheet {
     }
 
     public int checksumTwo(String fileLocation) throws IOException {
-        ArrayList<ArrayList> inputArray = readFile(fileLocation);
+        ArrayList<ArrayList> inputArray = filereader.readIntegerFile(fileLocation);
         int checksum = 0;
 
         for (ArrayList<Integer> row : inputArray) {
@@ -37,23 +37,5 @@ public class Spreadsheet {
             }
 
         return checksum;
-    }
-
-    public ArrayList readFile(String fileLocation) throws IOException {
-        BufferedReader read = new BufferedReader(new FileReader(fileLocation));
-        ArrayList<ArrayList> array = new ArrayList();
-        String line;
-
-        while ((line = read.readLine()) != null){
-            ArrayList<Integer> lineArray = new ArrayList();
-            String[] values = line.split("\\s+");
-            for (String value: values) {
-                lineArray.add(Integer.valueOf(value));
-            }
-            array.add(lineArray);
-        }
-        read.close();
-
-        return array;
     }
 }

@@ -1,6 +1,7 @@
 package millisecond.three;
 
 import org.fest.assertions.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 
+@Ignore
 public class SpiralMemoryTest {
 
     private SpiralMemory spiralMemory = new SpiralMemory();
@@ -43,6 +45,7 @@ public class SpiralMemoryTest {
         Assertions.assertThat(result).isEqualTo(31);
     }
 
+    @Ignore
     @Test
     public void createSpiralArray_createsCorrectArraysForInputTwentyFive() {
         ArrayList<ArrayList> expectedArray = new ArrayList<>(
@@ -58,6 +61,7 @@ public class SpiralMemoryTest {
         Assertions.assertThat(actualSpiralArray).isEqualTo(expectedArray);
     }
 
+    @Ignore
     @Test
     public void createSpiralArray_createsCorrectArraysForInputFourteen() {
         ArrayList<ArrayList> expectedArray = new ArrayList<>(
@@ -73,6 +77,7 @@ public class SpiralMemoryTest {
         Assertions.assertThat(actualSpiralArray).isEqualTo(expectedArray);
     }
 
+    @Ignore
     @Test
     public void createSpiralArray_createsCorrectArraysForInputFiftyThree() {
         ArrayList<ArrayList> expectedArray = new ArrayList<>(

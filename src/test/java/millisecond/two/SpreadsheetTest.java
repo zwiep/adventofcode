@@ -1,18 +1,17 @@
 package millisecond.two;
 
 import org.fest.assertions.Assertions;
-import org.fest.util.Arrays;
 import org.junit.Test;
+import utils.FileReader;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static java.util.Arrays.*;
-import static org.junit.Assert.*;
 
 public class SpreadsheetTest {
 
     private Spreadsheet spreadsheet = new Spreadsheet();
+    private FileReader fileReader = new FileReader();
 
     /*
     5 1 9 5
@@ -29,7 +28,7 @@ public class SpreadsheetTest {
         String fileLocation = "src/test/resources/input_rows_test_checksum_one";
         ArrayList<ArrayList> expectedArray = createExpectedArrayForChecksumOne();
 
-        ArrayList<ArrayList> actualArray = spreadsheet.readFile(fileLocation);
+        ArrayList<ArrayList> actualArray = fileReader.readIntegerFile(fileLocation);
 
         Assertions.assertThat(actualArray).isEqualTo(expectedArray);
     }
