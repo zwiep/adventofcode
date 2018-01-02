@@ -44,5 +44,12 @@ public class AdventOfCode {
         System.out.println(amountOfValidPassphrases);
 
         System.out.println("=================================");
+
+        String passPhraseInputFileTwo = "src/main/resources/millisecond/four/passphrase_input_millisecond_four_with_anagrams";
+        int amountOfValidPassphrasesWithAnagrams = passwordValidator.checkAmountOfValidPassphrases(passPhraseInputFileTwo);
+        System.out.println("Millisecond Four: amount of valid phrases");
+        System.out.println(amountOfValidPassphrasesWithAnagrams);
+
+        System.out.println("=================================");
     }
 }

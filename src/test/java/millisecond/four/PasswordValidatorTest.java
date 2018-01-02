@@ -17,19 +17,19 @@ public class PasswordValidatorTest {
 
     @Test
     public void aValidPassphrase_returnsTrue() {
-        Boolean checkPassphrase = passwordValidator.isValidPassword("aa bb cc dd ee");
+        boolean checkPassphrase = passwordValidator.isValidPassword("aa bb cc dd ee");
         Assertions.assertThat(checkPassphrase).isTrue();
     }
 
     @Test
     public void anInvalidPassphrase_returnsFalse() {
-        Boolean checkPassphrase = passwordValidator.isValidPassword("aa bb cc dd aa");
+        boolean checkPassphrase = passwordValidator.isValidPassword("aa bb cc dd aa");
         Assertions.assertThat(checkPassphrase).isFalse();
     }
 
     @Test
     public void anotherValidPassphrase_returnsTrue() {
-        Boolean checkPassphrase = passwordValidator.isValidPassword("aa bb cc dd aaa");
+        boolean checkPassphrase = passwordValidator.isValidPassword("aa bb cc dd aaa");
         Assertions.assertThat(checkPassphrase).isTrue();
     }
 
@@ -40,4 +40,34 @@ public class PasswordValidatorTest {
     iiii oiii ooii oooi oooo is valid.
     oiii ioii iioi iiio is not valid - any of these words can be rearranged to form any other word.
      */
+
+    @Test
+    public void anAnagramValidPassphrase_returnsTrue() {
+        boolean checkPassphrase = passwordValidator.isValidPassword("abcde fghij");
+        Assertions.assertThat(checkPassphrase).isTrue();
+    }
+
+    @Test
+    public void anAnagramInvalidPassphrase_returnsFalse() {
+        boolean checkPassphrase = passwordValidator.isValidPassword("abcde xyz ecdab");
+        Assertions.assertThat(checkPassphrase).isFalse();
+    }
+
+    @Test
+    public void anotherAnagramValidPassphrase_returnsTrue() {
+        boolean checkPassphrase = passwordValidator.isValidPassword("a ab abc abd abf abj");
+        Assertions.assertThat(checkPassphrase).isTrue();
+    }
+
+    @Test
+    public void yetAnotherAnagramValidPassphrase_returnsTrue() {
+        boolean checkPassphrase = passwordValidator.isValidPassword("iiii oiii ooii oooi oooo");
+        Assertions.assertThat(checkPassphrase).isTrue();
+    }
+
+    @Test
+    public void anotherAnagramInvalidPassphrase_returnsFalse() {
+        Boolean checkPassphrase = passwordValidator.isValidPassword("oiii ioii iioi iiio");
+        Assertions.assertThat(checkPassphrase).isFalse();
+    }
 }
