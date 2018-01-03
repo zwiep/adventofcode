@@ -1,9 +1,11 @@
 import millisecond.five.MazeEscaper;
 import millisecond.four.PasswordValidator;
 import millisecond.one.Captcha;
+import millisecond.six.MemoryReallocator;
 import millisecond.two.Spreadsheet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AdventOfCode {
 
@@ -68,7 +70,16 @@ public class AdventOfCode {
         System.out.println("=================================");
 
         System.out.println("Millisecond Six: Memory Reallocation in cycles");
-        System.out.println("cycles");
+        System.out.println("steps");
+        MemoryReallocator memoryReallocator = new MemoryReallocator();
+        utils.FileReader fileReader = new utils.FileReader();
+        String startMemoryBank = "4	10	4	1	8	4	9	14	5	1	14	15	0	15	3	5";
+        ArrayList<Integer> startMemory = new ArrayList<>(fileReader.readLineToIntegerArray(startMemoryBank));
+
+        System.out.println(memoryReallocator.countSteps(startMemory));
+
+        System.out.println("cycles until next occurrence");
+        System.out.println(memoryReallocator.countSteps(memoryReallocator.resultMemory));
 
         System.out.println("=================================");
     }

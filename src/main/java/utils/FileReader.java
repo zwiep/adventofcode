@@ -26,6 +26,15 @@ public class FileReader {
         return array;
     }
 
+    public ArrayList<Integer> readLineToIntegerArray(String line) {
+        ArrayList<Integer> array = new ArrayList<>();
+        String[] values = line.split("\\s+");
+        for (String value: values) {
+            array.add(Integer.valueOf(value));
+        }
+        return array;
+    }
+
     public ArrayList readStringFile(String fileLocation) throws IOException {
         BufferedReader read = new BufferedReader(new java.io.FileReader(fileLocation));
         ArrayList<String> array = new ArrayList();

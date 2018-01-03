@@ -6,8 +6,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
-
 public class MemoryReallocatorTest {
 
     MemoryReallocator memoryReallocator = new MemoryReallocator();
@@ -63,11 +61,11 @@ public class MemoryReallocatorTest {
     }
 
     @Test
-    public void counCycles_countsCyclesUntilAllocationComplete() {
+    public void countSteps_countsStepsUntilAllocationComplete() {
         ArrayList<Integer> startMemory = new ArrayList<>(Arrays.asList(0, 2, 7, 0));
         int expectedCycles = 5;
 
-        int actualCycles = memoryReallocator.countCycles(startMemory);
+        int actualCycles = memoryReallocator.countSteps(startMemory);
 
         Assertions.assertThat(actualCycles).isEqualTo(expectedCycles);
     }

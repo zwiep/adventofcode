@@ -7,6 +7,8 @@ import java.util.Set;
 
 public class MemoryReallocator {
 
+    public ArrayList<Integer> resultMemory = new ArrayList<>();
+
 
     public ArrayList<Integer> reallocate(ArrayList<Integer> memory) {
         int bankSize = memory.size() - 1;
@@ -27,22 +29,25 @@ public class MemoryReallocator {
         return memory;
     }
 
-    public int countCycles(ArrayList<Integer> memory) {
-        int cycles = 0;
+    public int countSteps(ArrayList<Integer> memory) {
+        int step = 0;
         boolean alreadyHadThisSet = false;
         ArrayList<ArrayList<Integer>> memoryHistory = new ArrayList<>();
 
         while (!alreadyHadThisSet) {
+            ArrayList<Integer> newMemory = new ArrayList<>(memory);
+            memoryHistory.add(newMemory);
             memory = reallocate(memory);
-            memoryHistory.add(memory);
-            Set<ArrayList> historySet = new HashSet<>(memoryHistory);
-            if (memoryHistory.size() > historySet.size()) {
-                alreadyHadThisSet = true;
+            for (ArrayList<Integer> currentMemory : memoryHistory) {
+                if (currentMemory.equals(memory)) {
+                    alreadyHadThisSet = true;
+                    resultMemory = new ArrayList<>(currentMemory);
+                }
             }
-            cycles++;
+            step++;
         }
 
-        return cycles;
+        return step;
     }
 
     private int findIndexOfFirstMaxValue(ArrayList<Integer> startMemory) {
