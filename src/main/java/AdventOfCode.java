@@ -1,3 +1,4 @@
+import millisecond.five.MazeEscaper;
 import millisecond.four.PasswordValidator;
 import millisecond.one.Captcha;
 import millisecond.two.Spreadsheet;
@@ -49,6 +50,20 @@ public class AdventOfCode {
         int amountOfValidPassphrasesWithAnagrams = passwordValidator.checkAmountOfValidPassphrases(passPhraseInputFileTwo);
         System.out.println("Millisecond Four: amount of valid phrases");
         System.out.println(amountOfValidPassphrasesWithAnagrams);
+
+        System.out.println("=================================");
+        System.out.println("Millisecond Five: amount of steps to escape");
+        MazeEscaper mazeEscaper = new MazeEscaper();
+        String mazeEscapeInputFileOne = "src/main/resources/millisecond/five/mazeEscape_ms5_pt1_input";
+        int amountOfStepsToEscape = mazeEscaper.mazeEscape(mazeEscapeInputFileOne, true);
+        System.out.println(amountOfStepsToEscape);
+
+        System.out.println("=================================");
+
+        System.out.println("Millisecond Five: amount of steps to escape with constraint");
+        String mazeEscapeInputFileTwo = "src/main/resources/millisecond/five/mazeEscape_ms5_pt2_input";
+        amountOfStepsToEscape = mazeEscaper.mazeEscape(mazeEscapeInputFileOne, false);
+        System.out.println(amountOfStepsToEscape);
 
         System.out.println("=================================");
     }

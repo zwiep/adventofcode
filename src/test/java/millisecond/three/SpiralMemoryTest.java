@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.*;
 
 @Ignore
 public class SpiralMemoryTest {

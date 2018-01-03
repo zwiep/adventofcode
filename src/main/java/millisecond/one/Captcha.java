@@ -1,7 +1,5 @@
 package millisecond.one;
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
-
 public class Captcha {
 
     public int validateCaptchaOne(String input) {

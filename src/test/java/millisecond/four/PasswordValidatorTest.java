@@ -3,8 +3,6 @@ package millisecond.four;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PasswordValidatorTest {
 
     PasswordValidator passwordValidator = new PasswordValidator();

@@ -6,7 +6,7 @@ import utils.FileReader;
 
 import java.util.ArrayList;
 
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 
 public class SpreadsheetTest {
 
