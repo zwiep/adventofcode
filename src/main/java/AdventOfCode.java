@@ -66,5 +66,10 @@ public class AdventOfCode {
         System.out.println(amountOfStepsToEscape);
 
         System.out.println("=================================");
+
+        System.out.println("Millisecond Six: Memory Reallocation in cycles");
+        System.out.println("cycles");
+
+        System.out.println("=================================");
     }
 }
