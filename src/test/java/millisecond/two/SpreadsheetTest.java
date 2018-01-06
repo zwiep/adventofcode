@@ -25,7 +25,7 @@ public class SpreadsheetTest {
 
     @Test
     public void readFile_returnsArrayWithRightNumbers() throws Exception {
-        String fileLocation = "src/test/resources/input_rows_test_checksum_one";
+        String fileLocation = "src/test/resources/millisecond/two/input_rows_test_checksum_one";
         ArrayList<ArrayList> expectedArray = createExpectedArrayForChecksumOne();
 
         ArrayList<ArrayList> actualArray = fileReader.readIntegerFile(fileLocation);
@@ -35,7 +35,7 @@ public class SpreadsheetTest {
 
     @Test
     public void arrayInput_returnsRightReuslt() throws Exception {
-        String fileLocation = "src/test/resources/input_rows_test_checksum_one";
+        String fileLocation = "src/test/resources/millisecond/two/input_rows_test_checksum_one";
 
         int result = spreadsheet.checksum(fileLocation);
 
@@ -54,7 +54,7 @@ public class SpreadsheetTest {
 
     @Test
     public void checksumTwo_returnsRightResult() throws Exception {
-        String fileLocation = "src/test/resources/input_rows_test_checksum_two";
+        String fileLocation = "src/test/resources/millisecond/two/input_rows_test_checksum_two";
 
         int result = spreadsheet.checksumTwo(fileLocation);
 
