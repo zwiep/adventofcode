@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class ProgramTower {
 
+    private ArrayList<Program> programs = new ArrayList<>();
+
     public Program findBottomProgram(ArrayList<Program> inputArrayOfPrograms) {
 
         ArrayList<String> allNames = createArrayOfAllNames(inputArrayOfPrograms);

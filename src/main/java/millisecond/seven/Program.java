@@ -15,6 +15,12 @@ public class Program {
         this.name = name;
     }
 
+    public Program(String name, int weight, ArrayList<Program> programsOnDisc) {
+        this.name = name;
+        this.weight = weight;
+        this.programsOnDisc = programsOnDisc;
+    }
+
     public String getName() {
         return name;
     }

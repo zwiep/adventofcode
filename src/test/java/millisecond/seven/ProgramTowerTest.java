@@ -1,5 +1,6 @@
 package millisecond.seven;
 
+import org.fest.assertions.Assertions;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
 import utils.FileReader;
@@ -19,6 +20,6 @@ public class ProgramTowerTest {
 
         Program actualBottomProgram = programTower.findBottomProgram(testTowerArray);
 
-        ReflectionAssert.assertLenientEquals(expectedBottomProgram, actualBottomProgram);
+        Assertions.assertThat(actualBottomProgram.getName()).isEqualTo(expectedBottomProgram.getName());
     }
 }

@@ -1,6 +1,8 @@
 import millisecond.five.MazeEscaper;
 import millisecond.four.PasswordValidator;
 import millisecond.one.Captcha;
+import millisecond.seven.Program;
+import millisecond.seven.ProgramTower;
 import millisecond.six.MemoryReallocator;
 import millisecond.two.Spreadsheet;
 
@@ -80,6 +82,14 @@ public class AdventOfCode {
 
         System.out.println("cycles until next occurrence");
         System.out.println(memoryReallocator.countSteps(memoryReallocator.resultMemory));
+
+        System.out.println("=================================");
+
+        System.out.println("Millisecond Seven: find the bottom program");
+        ProgramTower programTower = new ProgramTower();
+        ArrayList<Program> tower = fileReader.readFiletoArrayOfPrograms("src/main/resources/millisecond/seven/ms7_pt1_input");
+        System.out.println("The bottom program is:");
+        System.out.println((programTower.findBottomProgram(tower)).getName());
 
         System.out.println("=================================");
     }

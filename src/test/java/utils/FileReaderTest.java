@@ -3,7 +3,6 @@ package utils;
 import millisecond.seven.Program;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
-import org.unitils.reflectionassert.ReflectionAssert;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,50 +18,6 @@ public class FileReaderTest {
     String inputLine = "rqtlp (13) -> tmoib, pidha, yaqiuq, zprfu, ssjau, duhaz, qzaecfk";
     String shortInput = "rqtlp (13)";
 
-    @Test
-    public void readLineToProgram_takesNameFromLine_returnsProgramWithCorrectName() {
-        String expectedName = "rqtlp";
-
-        Program actualProgram = fileReader.readLineToProgram(inputLine);
-
-        assertThat(actualProgram.getName()).isEqualTo(expectedName);
-    }
-
-    @Test
-    public void readLineToProgram_takesWeightFromLine_returnsProgramWithCorrectWeight() {
-        int expectedWeight = 13;
-
-        Program actualProgram = fileReader.readLineToProgram(inputLine);
-
-        assertThat(actualProgram.getWeight()).isEqualTo(expectedWeight);
-    }
-
-    @Test
-    public void readLineToProgram_takesProgramsFromLine_returnsProgramWithArrayOfPrograms() {
-        ArrayList<Program> expectedArrayOfPrograms = createExpectedArrayOfPrograms();
-
-        Program actualProgram = fileReader.readLineToProgram(inputLine);
-
-        assertLenientEquals(expectedArrayOfPrograms, actualProgram.getProgramsOnDisc());
-    }
-
-    @Test
-    public void readLineToProgram_takesNameFromLine_returnsProgramWithCorrectName_whenOnlyNameAndWeightAreAvailable() {
-        String expectedName = "rqtlp";
-
-        Program actualProgram = fileReader.readLineToProgram(shortInput);
-
-        assertThat(actualProgram.getName()).isEqualTo(expectedName);
-    }
-
-    @Test
-    public void readLineToProgram_takesWeightFromLine_returnsProgramWithCorrectWeight_whenOnlyNameAndWeightAreAvailable() {
-        int expectedWeight = 13;
-
-        Program actualProgram = fileReader.readLineToProgram(shortInput);
-
-        assertThat(actualProgram.getWeight()).isEqualTo(expectedWeight);
-    }
 
     @Test
     public void readFileToProgramArray_returnsArrayOfCorrectSize() throws IOException {
