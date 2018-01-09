@@ -1,6 +1,8 @@
 package millisecond.seven;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ProgramTower {
 
@@ -36,11 +38,31 @@ public class ProgramTower {
         ArrayList<String> names = new ArrayList<>();
         for (Program inputProgram : inputArrayOfPrograms) {
             if (inputProgram.getProgramsOnDisc() != null) {
+                inputProgram.setSupportsOtherPrograms(true);
                 for (Program program : inputProgram.getProgramsOnDisc() ) {
                     names.add(program.getName());
                 }
             }
+            else {
+                inputProgram.setTotalLoad(0);
+                inputProgram.setSupportsOtherPrograms(false);
+            }
         }
         return names;
+    }
+
+
+    public boolean checkProgramIsBalanced(Program inputProgram) {
+        if (inputProgram.supportsOtherPrograms) {
+            Set set = new HashSet<Integer>();
+            ArrayList<Program> programsOnDisc = inputProgram.getProgramsOnDisc();
+            for (Program program : programsOnDisc) {
+                set.add(program.getWeight());
+            }
+            if (set.size() > 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }

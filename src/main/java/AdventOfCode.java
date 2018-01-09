@@ -91,6 +91,10 @@ public class AdventOfCode {
         System.out.println("The bottom program is:");
         System.out.println((programTower.findBottomProgram(tower)).getName());
 
+        System.out.println("Millisecond Seven: find the unbalanced program:");
+        System.out.println();
+        System.out.println("the weight of the unbalanced program is " + ", and should be ");
+
         System.out.println("=================================");
     }
 }

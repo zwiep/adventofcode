@@ -6,7 +6,10 @@ public class Program {
 
     private String name;
     private int weight;
+    private int totalLoad;
     private ArrayList<Program> programsOnDisc = new ArrayList<>();
+    private Program parentProgram;
+    boolean supportsOtherPrograms;
 
     public Program() {
     }
@@ -43,5 +46,29 @@ public class Program {
 
     public void setProgramsOnDisc(ArrayList<Program> programsOnDisc) {
         this.programsOnDisc = programsOnDisc;
+    }
+
+    public int getTotalLoad() {
+        return totalLoad;
+    }
+
+    public void setTotalLoad(int totalLoad) {
+        this.totalLoad = totalLoad;
+    }
+
+    public Program getParentProgram() {
+        return parentProgram;
+    }
+
+    public void setParentProgram(Program parentProgram) {
+        this.parentProgram = parentProgram;
+    }
+
+    public boolean isSupportsOtherPrograms() {
+        return supportsOtherPrograms;
+    }
+
+    public void setSupportsOtherPrograms(boolean supportsOtherPrograms) {
+        this.supportsOtherPrograms = supportsOtherPrograms;
     }
 }

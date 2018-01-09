@@ -71,8 +71,10 @@ public class FileReader {
             readLineToProgramArray(programLine);
         }
         read.close();
+//        calculateTotalLoads(programArray);
         return programArray;
     }
+
 
     public void readLineToProgramArray(String line) {
         String name = line.substring(0, line.indexOf("(")).trim();
@@ -86,11 +88,23 @@ public class FileReader {
                     exists = true;
                     program.setWeight(weight);
                     program.setProgramsOnDisc(programsOnDisc);
+                    if (programsOnDisc.size() > 0) {
+                        program.setSupportsOtherPrograms(true);
+                        for (Program programOnDisc : programsOnDisc) {
+                            programOnDisc.setParentProgram(program);
+                        }
+                    }
                 }
             }
         }
         if (!exists) {
             Program newProgram = new Program(name, weight, programsOnDisc);
+            if (programsOnDisc != null && programsOnDisc.size() > 0) {
+                newProgram.setSupportsOtherPrograms(true);
+                for (Program programOnDisc : programsOnDisc) {
+                    programOnDisc.setParentProgram(newProgram);
+                }
+            }
             programArray.add(newProgram);
         }
     }
@@ -116,6 +130,22 @@ public class FileReader {
         }
         else {
             return null;
+        }
+    }
+
+    private void calculateTotalLoads(ArrayList<Program> inputArrayOfPrograms) {
+        for (Program program : inputArrayOfPrograms) {
+            int totalLoad = 0;
+            if (program.isSupportsOtherPrograms()) {
+                for (Program supportedProgram : program.getProgramsOnDisc()) {
+                    totalLoad = totalLoad + supportedProgram.getTotalLoad();
+                }
+                totalLoad = totalLoad + program.getWeight();
+            }
+            program.setTotalLoad(totalLoad);
+            if (program.getParentProgram() != null) {
+                program.getParentProgram().setTotalLoad(program.getParentProgram().getTotalLoad() + totalLoad);
+            }
         }
     }
 }
