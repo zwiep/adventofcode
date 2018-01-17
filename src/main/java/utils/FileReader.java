@@ -71,7 +71,6 @@ public class FileReader {
             readLineToProgramArray(programLine);
         }
         read.close();
-//        calculateTotalLoads(programArray);
         return programArray;
     }
 
