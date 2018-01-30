@@ -1,15 +1,16 @@
 package millisecond.seven;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Program {
 
     private String name;
     private int weight;
-    private int totalLoad;
-    private ArrayList<Program> programsOnDisc = new ArrayList<>();
+    private List<Program> programsOnDisc = new ArrayList<>();
     private Program parentProgram;
-    boolean supportsOtherPrograms;
 
     public Program() {
     }
@@ -18,7 +19,7 @@ public class Program {
         this.name = name;
     }
 
-    public Program(String name, int weight, ArrayList<Program> programsOnDisc) {
+    public Program(String name, int weight, List<Program> programsOnDisc) {
         this.name = name;
         this.weight = weight;
         this.programsOnDisc = programsOnDisc;
@@ -40,7 +41,7 @@ public class Program {
         this.weight = weight;
     }
 
-    public ArrayList<Program> getProgramsOnDisc() {
+    public List<Program> getProgramsOnDisc() {
         return programsOnDisc;
     }
 
@@ -49,11 +50,8 @@ public class Program {
     }
 
     public int getTotalLoad() {
+        int totalLoad = this.weight + calculateLoad();
         return totalLoad;
-    }
-
-    public void setTotalLoad(int totalLoad) {
-        this.totalLoad = totalLoad;
     }
 
     public Program getParentProgram() {
@@ -64,11 +62,25 @@ public class Program {
         this.parentProgram = parentProgram;
     }
 
-    public boolean isSupportsOtherPrograms() {
-        return supportsOtherPrograms;
+    public boolean supportsOtherPrograms() {
+        return programsOnDisc.size() > 0;
     }
 
-    public void setSupportsOtherPrograms(boolean supportsOtherPrograms) {
-        this.supportsOtherPrograms = supportsOtherPrograms;
+    private int calculateLoad() {
+        int total = 0;
+        if (supportsOtherPrograms()) {
+            for (Program program : programsOnDisc) {
+                total += program.getTotalLoad();
+            }
+        }
+        return total;
+    }
+
+    public boolean isBalanced() {
+        Set set = new HashSet();
+        for (Program program : programsOnDisc) {
+            set.add(program.getTotalLoad());
+        }
+        return set.size() <= 1;
     }
 }

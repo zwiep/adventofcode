@@ -93,7 +93,10 @@ public class AdventOfCode {
 
         System.out.println("Millisecond Seven: find the unbalanced program:");
         System.out.println();
-        System.out.println("the weight of the unbalanced program is " + ", and should be ");
+        System.out.println("the faulty program is: " + programTower.findProgramToCorrect(tower).getName() + " and the weight difference is: " + programTower.findProgramAndCorrectWeight(tower));
+
+        System.out.println("=================================");
+
 
         System.out.println("=================================");
     }

@@ -76,30 +76,24 @@ public class FileReader {
 
 
     public void readLineToProgramArray(String line) {
-        String name = line.substring(0, line.indexOf("(")).trim();
-        int weight = Integer.valueOf(line.substring(line.indexOf("(") + 1, line.indexOf(")")));
+        String name = getName(line);
+        int weight = getWeight(line);
         ArrayList<Program> programsOnDisc = readProgramNamesToArray(line);
-        boolean exists = false;
 
-        if (programArray.size() > 0) {
-            for (Program program : programArray) {
-                if ((program.getName()).equals(name)) {
-                    exists = true;
-                    program.setWeight(weight);
-                    program.setProgramsOnDisc(programsOnDisc);
-                    if (programsOnDisc.size() > 0) {
-                        program.setSupportsOtherPrograms(true);
-                        for (Program programOnDisc : programsOnDisc) {
-                            programOnDisc.setParentProgram(program);
-                        }
-                    }
+        boolean exists = false;
+        for (Program program : programArray) {
+            if ((program.getName()).equals(name)) {
+                exists = true;
+                program.setWeight(weight);
+                program.setProgramsOnDisc(programsOnDisc);
+                for (Program programOnDisc : programsOnDisc) {
+                    programOnDisc.setParentProgram(program);
                 }
             }
         }
         if (!exists) {
             Program newProgram = new Program(name, weight, programsOnDisc);
             if (programsOnDisc != null && programsOnDisc.size() > 0) {
-                newProgram.setSupportsOtherPrograms(true);
                 for (Program programOnDisc : programsOnDisc) {
                     programOnDisc.setParentProgram(newProgram);
                 }
@@ -108,11 +102,19 @@ public class FileReader {
         }
     }
 
+    private Integer getWeight(String line) {
+        return Integer.valueOf(line.substring(line.indexOf("(") + 1, line.indexOf(")")));
+    }
+
+    private String getName(String line) {
+        return line.substring(0, line.indexOf("(")).trim();
+    }
+
     private ArrayList<Program> readProgramNamesToArray(String line) {
         ArrayList<Program> arrayOfPrograms = new ArrayList<>();
         if (line.contains(">")) {
             String lineOfPrograms = line.substring(line.indexOf(">") + 1).trim();
-            String[] programNames = lineOfPrograms.split(",");
+            String[] programNames = lineOfPrograms.split(", ");
             for (String programName : programNames) {
                 boolean exists = false;
                 for (Program program : programArray) {
@@ -122,29 +124,15 @@ public class FileReader {
                     }
                 }
                 if (!exists) {
-                    arrayOfPrograms.add(new Program(programName.trim()));
+                    Program newProgram = new Program(programName.trim());
+                    arrayOfPrograms.add(newProgram);
+                    programArray.add(newProgram);
+
                 }
             }
             return arrayOfPrograms;
-        }
-        else {
-            return null;
-        }
-    }
-
-    private void calculateTotalLoads(ArrayList<Program> inputArrayOfPrograms) {
-        for (Program program : inputArrayOfPrograms) {
-            int totalLoad = 0;
-            if (program.isSupportsOtherPrograms()) {
-                for (Program supportedProgram : program.getProgramsOnDisc()) {
-                    totalLoad = totalLoad + supportedProgram.getTotalLoad();
-                }
-                totalLoad = totalLoad + program.getWeight();
-            }
-            program.setTotalLoad(totalLoad);
-            if (program.getParentProgram() != null) {
-                program.getParentProgram().setTotalLoad(program.getParentProgram().getTotalLoad() + totalLoad);
-            }
+        } else {
+            return new ArrayList<>();
         }
     }
 }
