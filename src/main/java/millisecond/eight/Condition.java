@@ -3,7 +3,8 @@ package millisecond.eight;
 public class Condition {
     private String partOne;
     private Operator operator;
-    private String partTwo;
+    private Integer partTwo;
+
 
     public String getPartOne() {
         return partOne;
@@ -21,11 +22,12 @@ public class Condition {
         this.operator = operator;
     }
 
-    public String getPartTwo() {
+    public Integer getPartTwo() {
         return partTwo;
     }
 
-    public void setPartTwo(String partTwo) {
+    public void setPartTwo(Integer partTwo) {
         this.partTwo = partTwo;
     }
+
 }

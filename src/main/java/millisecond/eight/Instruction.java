@@ -2,17 +2,17 @@ package millisecond.eight;
 
 public class Instruction {
 
-    private Register register;
+    private String registerName;
     private Operator operator;
     private int amount;
     private Condition condition;
 
-    public Register getRegister() {
-        return register;
+    public String getRegisterName() {
+        return registerName;
     }
 
-    public void setRegister(Register register) {
-        this.register = register;
+    public void setRegisterName(String registerName) {
+        this.registerName = registerName;
     }
 
     public Operator getOperator() {
