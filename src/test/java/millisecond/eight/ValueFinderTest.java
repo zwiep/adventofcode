@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static millisecond.eight.ConditionTestBuilder.*;
-import static org.junit.Assert.*;
 
 public class ValueFinderTest {
 
@@ -22,7 +21,7 @@ public class ValueFinderTest {
             buildInstruction("c", Operator.INCREASE, -20, "c", Operator.EQUALS, 10)
         );
 
-        Assertions.assertThat(valueFinder.findLargestValue(instructions)).isEqualTo(1);
+        Assertions.assertThat(valueFinder.findLargestValueAfterExecution(instructions)).isEqualTo(1);
     }
 
     private Instruction buildInstruction(String register, Operator operator, int amount, String conditionPartOne, Operator conditionOperator, Integer conditionPartTwo) {
