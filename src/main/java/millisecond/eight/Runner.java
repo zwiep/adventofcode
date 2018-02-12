@@ -10,7 +10,7 @@ public class Runner {
         ValueFinder valueFinder = new ValueFinder();
         List<Instruction> instructions = instructionFileReader.readFileToArrayOfInstructions("src/main/resources/millisecond/eight/ms8_pt1_input");
         System.out.println("largest value after execution: " + valueFinder.findLargestValueAfterExecution(instructions));
-        System.out.println("largest value at any time    : " + valueFinder.largestValueRecorded);
+        System.out.println("largest value at any time    : " + valueFinder.getLargestValueRecorded());
 
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public class ValueFinder {
 
     private HashMap<String, Integer> registers = new HashMap<>();
-    public int largestValueRecorded = 0;
+    private int largestValueRecorded = 0;
 
     public int findLargestValueAfterExecution(List<Instruction> instructions) {
         executeInstructions(instructions);
@@ -66,5 +66,9 @@ public class ValueFinder {
                 throw new IllegalArgumentException("Undefined operator: " + condition.getOperator());
         }
 
+    }
+
+    public int getLargestValueRecorded() {
+        return largestValueRecorded;
     }
 }
