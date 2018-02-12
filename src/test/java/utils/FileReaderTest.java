@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.fest.assertions.Assertions.assertThat;
-import static org.unitils.reflectionassert.ReflectionAssert.*;
-
 public class FileReaderTest {
 
     FileReader fileReader = new FileReader();

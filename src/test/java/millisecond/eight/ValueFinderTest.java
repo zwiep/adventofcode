@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static millisecond.eight.ConditionTestBuilder.*;
+import static millisecond.eight.ConditionTestBuilder.aCondition;
 
 public class ValueFinderTest {
 

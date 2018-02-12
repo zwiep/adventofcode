@@ -1,10 +1,8 @@
 package millisecond.eight;
 
-import org.fest.assertions.Assertions;
 import org.junit.Test;
 
-import static org.fest.assertions.Assertions.*;
-import static org.junit.Assert.*;
+import static org.fest.assertions.Assertions.assertThat;
 
 public class InstructionFileReaderTest {
 

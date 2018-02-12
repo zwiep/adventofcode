@@ -2,7 +2,6 @@ package millisecond.seven;
 
 import org.fest.assertions.Assertions;
 import org.junit.Test;
-import sun.plugin.perf.PluginRollup;
 import utils.FileReader;
 
 import java.io.IOException;

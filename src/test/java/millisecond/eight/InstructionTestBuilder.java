@@ -1,7 +1,5 @@
 package millisecond.eight;
 
-import static org.junit.Assert.*;
-
 public class InstructionTestBuilder {
 
     private String registerName;
